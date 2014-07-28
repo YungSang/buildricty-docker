@@ -29,11 +29,9 @@ RUN apt-get upgrade -y && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 # git clone
-RUN git clone https://github.com/yascentur/Ricty.git
+RUN git clone -b $VERSION https://github.com/yascentur/Ricty.git
 
 # work on /Ricty
 WORKDIR /Ricty
-
-RUN git checkout $VERSION
 
 CMD ["./ricty_generator.sh", "auto"]
